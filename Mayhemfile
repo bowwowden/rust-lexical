@@ -3,7 +3,7 @@ target: rust-lexical
 
 cmds:
  - cmd: /parse-integer-i8
- - cmd: /parse-integer-116
+ - cmd: /parse-integer-i16
  - cmd: /parse-integer-i32 
  - cmd: /parse-integer-i64
  - cmd: /parse-integer-i128              
