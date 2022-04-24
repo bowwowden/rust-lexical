@@ -20,34 +20,34 @@ RUN cd fuzz && ${HOME}/.cargo/bin/cargo fuzz build
 FROM ubuntu:20.04
 
 ## TODO: Change <Path in Builder Stage>
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i8 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i16 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i128 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-isize /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-u8 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-u16 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-u32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-u64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-u128 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-usize /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-float-f32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-float-f64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-float-f32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-float-f64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-i8 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-i16 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-i32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-i64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-i128 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-isize /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-u8 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-u16 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-u32 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-u64 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-u128 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/write-integer-usize /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-i8 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-i16 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-i32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-i64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-i128 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-isize /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-u8 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-u16 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-u32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-u64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-u128 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-integer-usize /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-float-f32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/parse-float-f64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-float-f32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-float-f64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-i8 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-i16 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-i32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-i64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-i128 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-isize /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-u8 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-u16 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-u32 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-u64 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-u128 /
+COPY --from=builder repo/fuzz/target/x86_64-unknown-linux-gnu/release/write-integer-usize /
 
 
 
