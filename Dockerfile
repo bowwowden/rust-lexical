@@ -9,8 +9,10 @@ RUN ${HOME}/.cargo/bin/rustup default nightly
 RUN ${HOME}/.cargo/bin/cargo install -f cargo-fuzz
 
 ## Add source code to the build stage.
-ADD . /rust-lexical
-WORKDIR /rust-lexical/fuzz 
+# ADD . /rust-lexical
+# WORKDIR /rust-lexical/fuzz 
+ADD . /repo
+WORKDIR /repo
 
 ## TODO: ADD YOUR BUILD INSTRUCTIONS HERE.
 RUN cd fuzz && ${HOME}/.cargo/bin/cargo fuzz build
