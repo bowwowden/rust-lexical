@@ -28,4 +28,4 @@ cmds:
  - cmd: /write-integer-u32
  - cmd: /write-integer-u64
  - cmd: /write-integer-u128
- - cmd: write-integer-usize
+ - cmd: /write-integer-usize
