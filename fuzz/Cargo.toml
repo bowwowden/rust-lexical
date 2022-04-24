@@ -69,6 +69,7 @@ compact = [
 ]
 
 [workspace]
+members = ["."]
 
 [profile.release]
 opt-level = 3
