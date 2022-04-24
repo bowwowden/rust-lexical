@@ -10,7 +10,7 @@ ADD . /rust-lexical
 WORKDIR /rust-lexical/fuzz 
 
 ## TODO: ADD YOUR BUILD INSTRUCTIONS HERE.
-RUN cargo +nightly rustc -- \
+RUN cargo --bin "parse-integer-i8" +nightly rustc -- \
     -C passes='sancov-module' \
     -C llvm-args='-sanitizer-coverage-level=3' \
     -C llvm-args='-sanitizer-coverage-inline-8bit-counters' \
