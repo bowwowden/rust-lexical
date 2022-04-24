@@ -1,5 +1,4 @@
-# Build Stage
-FROM --platform=linux/amd64 rustlang/rust:nightly as builder
+FROM ubuntu:20.04 as builder
 
 ## Install build dependencies.
 RUN apt-get update && \
@@ -16,19 +15,13 @@ WORKDIR /repo
 
 ## TODO: ADD YOUR BUILD INSTRUCTIONS HERE.
 RUN cd fuzz && ${HOME}/.cargo/bin/cargo fuzz build
-# RUN cargo  +nightly rustc \
-#     --\
-#     -C passes='sancov-module' \
-#     -C llvm-args='-sanitizer-coverage-level=3' \
-#     -C llvm-args='-sanitizer-coverage-inline-8bit-counters' \
-#     -Z sanitizer=address
 
 # Package Stage
-FROM --platform=linux/amd64 ubuntu:20.04
+FROM ubuntu:20.04
 
 ## TODO: Change <Path in Builder Stage>
 COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i8 /
-COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i6 /
+COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i16 /
 COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i32 /
 COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i64 /
 COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i128 /
