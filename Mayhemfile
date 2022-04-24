@@ -1,0 +1,6 @@
+project: rust-lexical
+target: default
+
+cmds:
+ - cmd: /default
+ 
