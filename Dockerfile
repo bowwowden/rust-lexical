@@ -20,4 +20,4 @@ RUN cargo +nightly rustc -- \
 FROM --platform=linux/amd64 ubuntu:20.04
 
 ## TODO: Change <Path in Builder Stage>
-COPY --from=builder /rust-lexical/fuzz/target/debug/default /
+COPY --from=builder /rust-lexical/fuzz/target/debug/parse-integer-i8 /
