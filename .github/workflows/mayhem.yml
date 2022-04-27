@@ -7,6 +7,37 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  # All parser mayhemfiles (there should be 24)
+  PARSE-INT-I8-MAYHEMFILE: parse-integer-i8.mayhemfile
+  PARSE-INT-I16-MAYHEMFILE: parse-integer-i16.mayhemfile
+  PARSE-INT-I32-MAYHEMFILE: parse-integer-i32.mayhemfile
+  PARSE-INT-I64-MAYHEMFILE: parse-integer-i64.mayhemfile
+  PARSE-INT-I128-MAYHEMFILE: parse-integer-i128.mayhemfile
+  PARSE-INT-ISIZE-MAYHEMFILE: parse-integer-isize.mayhemfile
+  PARSE-INT-U8-MAYHEMFILE: parse-integer-u8.mayhemfile
+  PARSE-INT-U16-MAYHEMFILE: parse-integer-u16.mayhemfile
+  PARSE-INT-U32-MAYHEMFILE: parse-integer-u32.mayhemfile
+  PARSE-INT-U64-MAYHEMFILE: parse-integer-u64.mayhemfile
+  PARSE-INT-U128-MAYHEMFILE: parse-integer-u128.mayhemfile
+  PARSE-INT-USIZE-MAYHEMFILE: parse-integer-usize.mayhemfile
+  PARSE-FLOAT-F32: parse-float-f32.mayhemfile
+  PARSE-FLOAT-F64: parse-float-f64.mayhemfile
+  WRITE-FLOAT-F32: write-float-f32.mayhemfile
+  WRITE-FLOAT-F64: write-float-f64.mayhemfile
+  WRITE-INT-I8: write-integer-i8.mayhemfile
+  WRITE-INT-I16: write-integer-i16.mayhemfile
+  WRITE-INT-I32: write-integer-i32.mayhemfile
+  WRITE-INT-I64: write-integer-i64.mayhemfile
+  WRITE-INT-I128: write-integer-i128.mayhemfile
+  WRITE-INT-ISIZE: write-integer-isize.mayhemfile
+  WRITE-INT-U8: write-integer-u8.mayhemfile
+  WRITE-INT-U16: write-integer-u16.mayhemfile
+  WRITE-INT-U32: write-integer-u32.mayhemfile
+  WRITE-INT-U64: write-integer-u64.mayhemfile
+  WRITE-INT-U128: write-integer-u128.mayhemfile
+  WRITE-INT-USIZE: write-integer-usize.mayhemfile
+
+
 
 jobs:
   build:
@@ -45,12 +76,236 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Start analysis
+      # parse integer i8
+      - name: Start analysis for parse-integer-i8
         uses: ForAllSecure/mcode-action@v1
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
-          args: --image ${{ steps.meta.outputs.tags }}
+          args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-I8-MAYHEMFILE }}
           sarif-output: sarif
+
+      # parse integer i16
+      - name: Start analysis for parse-integer-i16
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-I16-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer i32
+      - name: Start analysis for parse-integer-i32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-I32-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer i64
+      - name: Start analysis for parse-integer-i64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-I64-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer i128
+      - name: Start analysis for parse-integer-i128
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-I128-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer isize
+      - name: Start analysis for parse-integer-isize
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-ISIZE-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer u8
+      - name: Start analysis for parse-integer-u8
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-U8-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer u16
+      - name: Start analysis for parse-integer-u16
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-U16-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer u32
+      - name: Start analysis for parse-integer-u32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-U32-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer u64
+      - name: Start analysis for parse-integer-u64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-U64-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer u128
+      - name: Start analysis for parse-integer-u128
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-U128-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse integer usize
+      - name: Start analysis for parse-integer-usize
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-INT-USIZE-MAYHEMFILE }}
+        sarif-output: sarif
+
+      # parse float f32
+      - name: Start analysis for parse-float-f32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-FLOAT-F32 }}
+        sarif-output: sarif
+
+      # parse float f64
+      - name: Start analysis for parse-float-f64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.PARSE-FLOAT-F64 }}
+        sarif-output: sarif
+
+      # write float f32
+      - name: Start analysis for write-float-f32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-FLOAT-F32 }}
+        sarif-output: sarif
+
+      # write float f64
+      - name: Start analysis for write-float-f64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-FLOAT-F64 }}
+        sarif-output: sarif
+
+
+      # write integer i8
+      - name: Start analysis for write-integer-i8
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-I8 }}
+        sarif-output: sarif
+
+
+      # write integer i16
+      - name: Start analysis for write-integer-i16
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-I16 }}
+        sarif-output: sarif
+
+      # write integer i32
+      - name: Start analysis for write-integer-i32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-I32 }}
+        sarif-output: sarif
+
+      # write integer i64
+      - name: Start analysis for write-integer-i64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-I64 }}
+        sarif-output: sarif
+
+      # write integer i128
+      - name: Start analysis for write-integer-i128
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-I128 }}
+        sarif-output: sarif
+
+
+      # write integer isize
+      - name: Start analysis for write-integer-isize
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-ISIZE }}
+        sarif-output: sarif
+
+      # write integer u8
+      - name: Start analysis for write-integer-u8
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-U8 }}
+        sarif-output: sarif
+
+      # write integer u16
+      - name: Start analysis for write-integer-u16
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-U16 }}
+        sarif-output: sarif
+
+
+      # write integer u32
+      - name: Start analysis for write-integer-u32
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-U32 }}
+        sarif-output: sarif
+
+
+      # write integer u64
+      - name: Start analysis for write-integer-u64
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-U64 }}
+        sarif-output: sarif
+
+
+      # write integer u128
+      - name: Start analysis for write-integer-u128
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-U128 }}
+        sarif-output: sarif
+
+      # write integer usize
+      - name: Start analysis for write-integer-usize
+      uses: ForAllSecure/mcode-action@v1
+      with:
+        mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
+        args: --image ${{ steps.meta.outputs.tags }} --file ${{ env.WRITE-INTEGER-USIZE }}
+        sarif-output: sarif
+
 
       - name: Upload SARIF file(s)
         uses: github/codeql-action/upload-sarif@v1
